@@ -4,9 +4,6 @@ import React, { useEffect, useState } from "react";
 
 function DataComponent(props) {
 
-  const [initialYear, setYear] = useState(null);
-  const [initialLaunch, setLaunchValue] = useState(null);
-  const [initialLand, setLandingValue] = useState(null);
   const [id, setId] = useState(null);
   const [dataItems, setData] = useState([]);
   const [error, setError] = useState(false);
@@ -65,7 +62,7 @@ function DataComponent(props) {
         {dataItems.map(item => (
           <div className="col-12 col-m-6 col-l-3" key={"main-" + item.flight_number}>
             <div className="mission-container">
-            <div className="img-container" key={"img-c-" + item.flight_number}><img className="mission-img" key={"img-" + item.flight_number} src={item.links.mission_patch_small} /></div>
+            <div className="img-container" key={"img-c-" + item.flight_number}><img height="200" width="200" className="mission-img" alt={item.flight_number} key={"img-" + item.flight_number} src={item.links.mission_patch_small} /></div>
             <div className="mission-name-sec align-left bold-text" key={"name-" + item.flight_number}>{item.mission_name} #{item.flight_number}</div>
             <div className="bold-text align-left" key={"id-label-" + item.flight_number}>Mission Ids: </div>
             <ul key={"ul-" + item.flight_number}>

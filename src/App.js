@@ -8,6 +8,11 @@ function App() {
         <div className="mainContainer">
             <FilterComponent />
         </div>
+        <div className="row">
+          <div className="col-12 col-m-12 col-lg-12 center-text">
+            <span className="bold-text">Developed by : </span><span>Radhika Radhakrishnan</span>
+          </div>
+        </div>
     </div>
   );
 }

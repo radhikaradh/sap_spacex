@@ -159,6 +159,13 @@ ul{
   .col-l-12 {width: 99%;}
 }
 
+@media only screen and (min-width: 1440px) {
+
+  * {
+    text-align: center !important;
+  }
+}
+
 [class*="col-"] {
   padding: 0.5%;
 }

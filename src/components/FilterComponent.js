@@ -42,12 +42,16 @@ function FilterComponent() {
   function FilterYearClick(event) {
     setSelectedId(selectedId+1);
     let selectedBtn = event.target;
-    if(initialYear){
+    if(!!initialYear){
       document.querySelector('#year-'+initialYear).classList.remove('btn-clicked');
     }
-    selectedBtn.classList.toggle('btn-clicked');
-    console.log(selectedBtn);
-    setyear(event.target.value);
+    if(event.target.value !== initialYear){
+      selectedBtn.classList.toggle('btn-clicked');
+      console.log(selectedBtn);
+      setyear(event.target.value);
+    } else {
+      setyear(null);
+    }
   }
 
   function filterLaunchClick(event) {
@@ -56,9 +60,13 @@ function FilterComponent() {
     if(!!initiallaunch){
       document.querySelector('#launch-'+initiallaunch.toString()).classList.remove('btn-clicked');
     }
-    selectedBtn.classList.toggle('btn-clicked');
-    console.log(selectedBtn.classList);
-    setlaunchValue(event.target.value);
+    if(event.target.value !== initiallaunch){
+      selectedBtn.classList.toggle('btn-clicked');
+      console.log(selectedBtn.classList);
+      setlaunchValue(event.target.value);
+    } else {
+      setlaunchValue(null);
+    }
   }
 
   function filterLandingClick(event) {
@@ -67,9 +75,13 @@ function FilterComponent() {
     if(!!initialland){
       document.querySelector('#land-'+initialland.toString()).classList.remove('btn-clicked');
     }
-    selectedBtn.classList.toggle('btn-clicked');
-    console.log(selectedBtn.classList);
-    setlandingValue(event.target.value);
+    if(event.target.value !== initialland){
+      selectedBtn.classList.toggle('btn-clicked');
+      console.log(selectedBtn.classList);
+      setlandingValue(event.target.value);
+    } else {
+      setlandingValue(null);
+    }
   }
 
   return (
@@ -81,7 +93,7 @@ function FilterComponent() {
           <div className="sub-title">Launch Year</div>
           <hr className="subtitle" key="year-hr"></hr>
           {years.map((year, index) => (
-            <div className="filterCol col-m-6 col-lg-6" key={"year-"+index}>
+            <div className="filterCol col-6 col-m-6 col-lg-6" key={"year-"+index}>
               <button
                 className="btn year-btn"
                 id={"year-"+year}
@@ -99,7 +111,7 @@ function FilterComponent() {
           <div className="sub-title">Successful Launch</div>
           <hr className="subtitle"></hr>
           {launchValue.map((value, index) => (
-            <div className="filterCol col-m-6 col-lg-6" key={"launch-"+index}>
+            <div className="filterCol col-6 col-m-6 col-lg-6" key={"launch-"+index}>
               <button
                 className="btn launch-btn"
                 id={"launch-"+value.toString()}
@@ -117,7 +129,7 @@ function FilterComponent() {
           <div className="sub-title">Successful Landing</div>
           <hr className="subtitle"></hr>
           {landingValue.map((value, index) => (
-            <div className="filterCol col-m-6 col-lg-6" key={"land-"+index}>
+            <div className="filterCol col-6 col-m-6 col-lg-6" key={"land-"+index}>
               <button
                 className="btn land-btn"
                 id={"land-"+value.toString()}
